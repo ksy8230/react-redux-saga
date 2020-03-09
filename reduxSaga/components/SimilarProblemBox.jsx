@@ -16,7 +16,7 @@ const SimilarProblemBox = ({
                 </p>
                 <div className='btn'>
                     <button onClick={() => onClickAddProblemBtn(v.id)}>추가</button>
-                    <button onClick={() => onClickSwitchProblemBtn(v.id)}>교체</button>
+                    <button onClick={() => onClickSwitchProblemBtn(i)}>교체</button>
                 </div>
             </div>
             <div className='problem-content'>
