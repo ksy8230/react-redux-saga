@@ -41,7 +41,7 @@ const App = () => {
     }, [selectId, selectIndex, activesimilar]);
 
     const onClickAddProblemBtn = useCallback((i) => { // 문제 추가 이벤트
-        const mainProblemIndex = post.mainProblemLists.findIndex( v => v.id === selectId); // 메인문제 index값
+        const mainProblemIndex = post.mainProblemLists && post.mainProblemLists.findIndex( v => v.id === selectId); // 메인문제 index값
         const similarProblemIndex = post.similarProblemLists.findIndex( v => v.id === i); // 유사문제 index값
         dispatch({
             type :  ADD_PROBLEM_REQUEST,
@@ -52,7 +52,8 @@ const App = () => {
         });
     }, [selectId, post.similarProblemLists, post.mainProblemLists]);
 
-    const onClickSwitchProblemBtn = useCallback((i) => { // 문제 교체 이벤트
+    const onClickSwitchProblemBtn = useCallback((i, id) => { // 문제 교체 이벤트
+        setSelectId(id);
         const mainProblemIndex = post.mainProblemLists.findIndex( v => v.id === selectId);
         dispatch({
             type : SWITCH_PROBLEM_REQUEST,
@@ -60,7 +61,7 @@ const App = () => {
                 mainIndex : mainProblemIndex,
                 clickedIndex : i,
             }
-        })
+        });
     }, [ selectId, post.mainProblemLists, post.similarProblemLists ]);
 
     useEffect(() => { // 유사문항 클릭시 우측 타이틀 변경
@@ -76,7 +77,7 @@ const App = () => {
                 <h2>학습지 상세 편집</h2>
                 <div className='source-list '>
                     {
-                        post.mainProblemLists.map((v,i) => {
+                        post && post.mainProblemLists.map((v,i) => {
                             return (
                                 <ProbelmBox 
                                 v={v}

@@ -35,8 +35,8 @@
 - client.jsx
     - 리액트 핫 모듈이 연결되어있습니다.
     - store 가 리액트 리덕스에서 제공하는 provider에 연결되어 리액트 앱의 상위에 존재해 리액트 앱이 store에 접근할 수 있습니다.
-            - react-redux에서 제공하는 Provider를 App으로 감싸 리액트에 리액트-리덕스 연결
-            - Provider에 store를 props로 받아 리액트-리덕스에 리덕스를 연결
+        - react-redux에서 제공하는 Provider를 App으로 감싸 리액트에 리액트-리덕스 연결
+        - Provider에 store를 props로 받아 리액트-리덕스에 리덕스를 연결
     - #root div에 앱이 들어갑니다.
 
 - index.html
@@ -47,7 +47,7 @@
 - 서버에서 (http://localhost:3000/problems/) 문제json을 불러오는 액션을 componentDidMount 사이클 때 실행합니다.
 
 2. 유사문항 로드
-- 서버에서 (http://localhost:3000/problems/similar/) 유사유형json을 불러오는 액션을 componentDidMount 사이클 때 실행합니다.
+- 서버에서 (http://localhost:3000/problems/similar/) 유사유형json을 불러오는 액션을 유사문항 클릭시 실행합니다.
 - 유사문항마다 존재하는 unitName 값이 유사문항 컨텐츠 상단에 기재됩니다.
 - 선택한 문제의 유사문항 버튼이 활성화됩니다.
 
